@@ -132,7 +132,6 @@ def SeeWhatsInTL():
     else:
         if TL['image'] == 'pyimage2':
             WhatsInTL = 'X'
-    print("In TL there's a " + WhatsInTL + ".")
 def SeeWhatsInTM():
     global WhatsInTM
     if TM['image'] == 'pyimage1':
@@ -140,7 +139,6 @@ def SeeWhatsInTM():
     else:
         if TM['image'] == 'pyimage2':
             WhatsInTM = 'X'
-    print("In TM there's a " + WhatsInTM + ".")
 def SeeWhatsInTR():
     global WhatsInTR
     if TR['image'] == 'pyimage1':
@@ -148,7 +146,6 @@ def SeeWhatsInTR():
     else:
         if TR['image'] == 'pyimage2':
             WhatsInTR = 'X'
-    print("In TR there's a " + WhatsInTR + ".")
 def SeeWhatsInML():
     global WhatsInML
     if ML['image'] == 'pyimage1':
@@ -156,7 +153,6 @@ def SeeWhatsInML():
     else:
         if ML['image'] == 'pyimage2':
             WhatsInML = 'X'
-    print("In ML there's a " + WhatsInML + ".")
 def SeeWhatsInMM():
     global WhatsInMM
     if MM['image'] == 'pyimage1':
@@ -164,7 +160,6 @@ def SeeWhatsInMM():
     else:
         if MM['image'] == 'pyimage2':
             WhatsInMM = 'X'
-    print("In MM there's a " + WhatsInMM + ".")
 def SeeWhatsInMR():
     global WhatsInMR
     if MR['image'] == 'pyimage1':
@@ -172,7 +167,6 @@ def SeeWhatsInMR():
     else:
         if MR['image'] == 'pyimage2':
             WhatsInMR = 'X'
-    print("In MR there's a " + WhatsInMR + ".")
 def SeeWhatsInBL():
     global WhatsInBL
     if BL['image'] == 'pyimage1':
@@ -180,7 +174,6 @@ def SeeWhatsInBL():
     else:
         if BL['image'] == 'pyimage2':
             WhatsInBL = 'X'
-    print("In BL there's a " + WhatsInBL + ".")
 def SeeWhatsInBM():
     global WhatsInBM
     if BM['image'] == 'pyimage1':
@@ -188,7 +181,6 @@ def SeeWhatsInBM():
     else:
         if BM['image'] == 'pyimage2':
             WhatsInBM = 'X'
-    print("In BM there's a " + WhatsInBM + ".")
 def SeeWhatsInBR():
     global WhatsInBR
     if BR['image'] == 'pyimage1':
@@ -196,7 +188,6 @@ def SeeWhatsInBR():
     else:
         if BR['image'] == 'pyimage2':
             WhatsInBR = 'X'
-    print("In BR there's a " + WhatsInBR + ".")
 
 # This is going to check if all buttons have been clicked and are disabled
 def AllDisabled():
@@ -401,7 +392,6 @@ boardimage = PhotoImage(file='TikTacToe.png')
 background.create_image(250, 250, image=boardimage,)
 
 # Buttons that display X/O depending on whos turn when clicked
-
 TL = Button(command=lambda: [DisableTL(), NextTurn(), ChangeImageTL(), ChangeWhosTurnLabel(), SeeWhatsInTL(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0,)
 TL.place(relx=0.19, rely=0.18)
 TM = Button(command=lambda: [DisableTM(), NextTurn(), ChangeImageTM(), ChangeWhosTurnLabel(), SeeWhatsInTM(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
