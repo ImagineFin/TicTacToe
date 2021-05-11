@@ -1,5 +1,5 @@
-# -= Made in python 3.9 5/5/2021 - 5/6/2021 (2 days). Made by Fin#2354 =-
-# Variables and imports.
+# -= Made in python 3.9.5 at 5/5/2021 - 5/10/2021 (5 days). Made by Fin#2354 =-
+# imports and Variables.
 from tkinter import *
 root = Tk()
 root.title('TicTacToe')
@@ -8,16 +8,17 @@ WhosTurn = 'X'
 oImage = PhotoImage(file='O.png')
 xImage = PhotoImage(file='X.png')
 StartingImage = PhotoImage(file='Start.png')
-
-XOImage1 = StartingImage
-XOImage2 = StartingImage
-XOImage3 = StartingImage
-XOImage4 = StartingImage
-XOImage5 = StartingImage
-XOImage6 = StartingImage
-XOImage7 = StartingImage
-XOImage8 = StartingImage
-XOImage9 = StartingImage
+IsDisabled = 'False'
+WhatsInTL = '-'
+WhatsInTM = '-'
+WhatsInTR = '-'
+WhatsInML = '-'
+WhatsInMM = '-'
+WhatsInMR = '-'
+WhatsInBL = '-'
+WhatsInBM = '-'
+WhatsInBR = '-'
+WinnerFound = 'False'
 
 # This defines whos going next.
 def NextTurn():
@@ -27,128 +28,362 @@ def NextTurn():
     else:
         if WhosTurn == 'O':
             WhosTurn = 'X'
-    print(WhosTurn)
 
-# This changes the image when the square is clicked depending on whos turn it is.
-def ChangeImage1():
+# This changes the image when the square is clicked depending on whos turn it is. (TL referes to 'Top Left' ect.)
+def ChangeImageTL():
     global xImage
     global oImage
-    global XOImage1
     if WhosTurn == 'X':
-        XOImage1 = oImage
-        button1['image'] = XOImage1
+        TL['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage1 = xImage
-            button1['image'] = XOImage1
-def ChangeImage2():
+            TL['image'] = xImage
+def ChangeImageTM():
     global xImage
     global oImage
-    global XOImage2
     if WhosTurn == 'X':
-        XOImage2 = oImage
-        button2['image'] = XOImage2
+        TM['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage2 = xImage
-            button2['image'] = XOImage2
-def ChangeImage3():
+            TM['image'] = xImage
+def ChangeImageTR():
     global xImage
     global oImage
-    global XOImage3
     if WhosTurn == 'X':
-        XOImage3 = oImage
-        button3['image'] = XOImage3
+        TR['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage3 = xImage
-            button3['image'] = XOImage3
-def ChangeImage4():
+            TR['image'] = xImage
+def ChangeImageML():
     global xImage
     global oImage
-    global XOImage4
     if WhosTurn == 'X':
-        XOImage4 = oImage
-        button4['image'] = XOImage4
+        ML['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage4 = xImage
-            button4['image'] = XOImage4
-def ChangeImage5():
+            ML['image'] = xImage
+def ChangeImageMM():
     global xImage
     global oImage
-    global XOImage5
     if WhosTurn == 'X':
-        XOImage5 = oImage
-        button5['image'] = XOImage5
+        MM['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage5 = xImage
-            button5['image'] = XOImage5
-def ChangeImage6():
+            MM['image'] = xImage
+def ChangeImageMR():
     global xImage
     global oImage
-    global XOImage6
     if WhosTurn == 'X':
-        XOImage6 = oImage
-        button6['image'] = XOImage6
+        MR['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage6 = xImage
-            button6['image'] = XOImage6
-def ChangeImage7():
+            MR['image'] = xImage
+def ChangeImageBL():
     global xImage
     global oImage
-    global XOImage7
     if WhosTurn == 'X':
-        XOImage7 = oImage
-        button7['image'] = XOImage7
+        BL['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage7 = xImage
-            button7['image'] = XOImage7
-def ChangeImage8():
+            BL['image'] = xImage
+def ChangeImageBM():
     global xImage
     global oImage
-    global XOImage8
     if WhosTurn == 'X':
-        XOImage8 = oImage
-        button8['image'] = XOImage8
+        BM['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage8 = xImage
-            button8['image'] = XOImage8
-def ChangeImage9():
+            BM['image'] = xImage
+def ChangeImageBR():
     global xImage
     global oImage
-    global XOImage9
     if WhosTurn == 'X':
-        XOImage9 = oImage
-        button9['image'] = XOImage9
+        BR['image'] = oImage
     else:
         if WhosTurn == 'O':
-            XOImage9 = xImage
-            button9['image'] = XOImage9
+            BR['image'] = xImage
 
 # Disables the button when its clicked
-def Disable1():
-    button1['state'] = DISABLED
-def Disable2():
-    button2['state'] = DISABLED
-def Disable3():
-    button3['state'] = DISABLED
-def Disable4():
-    button4['state'] = DISABLED
-def Disable5():
-    button5['state'] = DISABLED
-def Disable6():
-    button6['state'] = DISABLED
-def Disable7():
-    button7['state'] = DISABLED
-def Disable8():
-    button8['state'] = DISABLED
-def Disable9():
-    button9['state'] = DISABLED
+def DisableTL():
+    TL['state'] = DISABLED
+def DisableTM():
+    TM['state'] = DISABLED
+def DisableTR():
+    TR['state'] = DISABLED
+def DisableML():
+    ML['state'] = DISABLED
+def DisableMM():
+    MM['state'] = DISABLED
+def DisableMR():
+    MR['state'] = DISABLED
+def DisableBL():
+    BL['state'] = DISABLED
+def DisableBM():
+    BM['state'] = DISABLED
+def DisableBR():
+    BR['state'] = DISABLED
+
+# The next chunk of code keeps track of whats in each box, so in TL if theres a O/X I can refer to that later to see the theres 3 X's in a row.
+def SeeWhatsInTL():
+    global WhatsInTL
+    WhatsInTL = '-'
+    if TL['image'] == 'pyimage1':
+        WhatsInTL = 'O'
+    else:
+        if TL['image'] == 'pyimage2':
+            WhatsInTL = 'X'
+    print("In TL there's a " + WhatsInTL + ".")
+def SeeWhatsInTM():
+    global WhatsInTM
+    if TM['image'] == 'pyimage1':
+        WhatsInTM = 'O'
+    else:
+        if TM['image'] == 'pyimage2':
+            WhatsInTM = 'X'
+    print("In TM there's a " + WhatsInTM + ".")
+def SeeWhatsInTR():
+    global WhatsInTR
+    if TR['image'] == 'pyimage1':
+        WhatsInTR = 'O'
+    else:
+        if TR['image'] == 'pyimage2':
+            WhatsInTR = 'X'
+    print("In TR there's a " + WhatsInTR + ".")
+def SeeWhatsInML():
+    global WhatsInML
+    if ML['image'] == 'pyimage1':
+        WhatsInML = 'O'
+    else:
+        if ML['image'] == 'pyimage2':
+            WhatsInML = 'X'
+    print("In ML there's a " + WhatsInML + ".")
+def SeeWhatsInMM():
+    global WhatsInMM
+    if MM['image'] == 'pyimage1':
+        WhatsInMM = 'O'
+    else:
+        if MM['image'] == 'pyimage2':
+            WhatsInMM = 'X'
+    print("In MM there's a " + WhatsInMM + ".")
+def SeeWhatsInMR():
+    global WhatsInMR
+    if MR['image'] == 'pyimage1':
+        WhatsInMR = 'O'
+    else:
+        if MR['image'] == 'pyimage2':
+            WhatsInMR = 'X'
+    print("In MR there's a " + WhatsInMR + ".")
+def SeeWhatsInBL():
+    global WhatsInBL
+    if BL['image'] == 'pyimage1':
+        WhatsInBL = 'O'
+    else:
+        if BL['image'] == 'pyimage2':
+            WhatsInBL = 'X'
+    print("In BL there's a " + WhatsInBL + ".")
+def SeeWhatsInBM():
+    global WhatsInBM
+    if BM['image'] == 'pyimage1':
+        WhatsInBM = 'O'
+    else:
+        if BM['image'] == 'pyimage2':
+            WhatsInBM = 'X'
+    print("In BM there's a " + WhatsInBM + ".")
+def SeeWhatsInBR():
+    global WhatsInBR
+    if BR['image'] == 'pyimage1':
+        WhatsInBR = 'O'
+    else:
+        if BR['image'] == 'pyimage2':
+            WhatsInBR = 'X'
+    print("In BR there's a " + WhatsInBR + ".")
+
+# This is going to check if all buttons have been clicked and are disabled
+def AllDisabled():
+    global IsDisabled
+    if TL['state'] == DISABLED:
+        if TM['state'] == DISABLED:
+            if TR['state'] == DISABLED:
+                if ML['state'] == DISABLED:
+                    if MM['state'] == DISABLED:
+                        if MR['state'] == DISABLED:
+                            if BL['state'] == DISABLED:
+                                if BM['state'] == DISABLED:
+                                    if BR['state'] == DISABLED:
+                                        IsDisabled = 'True'
+# This will disable all buttons when called
+def DisableAll():
+    TL['state'] = DISABLED
+    TM['state'] = DISABLED
+    TR['state'] = DISABLED
+    ML['state'] = DISABLED
+    MM['state'] = DISABLED
+    MR['state'] = DISABLED
+    BL['state'] = DISABLED
+    BM['state'] = DISABLED
+    BR['state'] = DISABLED
+
+# This will enable all buttons when clicked
+def EnableAll():
+    TL['state'] = NORMAL
+    TM['state'] = NORMAL
+    TR['state'] = NORMAL
+    ML['state'] = NORMAL
+    MM['state'] = NORMAL
+    MR['state'] = NORMAL
+    BL['state'] = NORMAL
+    BM['state'] = NORMAL
+    BR['state'] = NORMAL
+
+# Reset button
+def Reset():
+    global WhatsInTL
+    global WhatsInTM
+    global WhatsInTR
+    global WhatsInML
+    global WhatsInMM
+    global WhatsInMR
+    global WhatsInBL
+    global WhatsInBM
+    global WhatsInBR
+    global WhosTurn
+    global IsDisabled
+    TL['image'] = StartingImage
+    TM['image'] = StartingImage
+    TR['image'] = StartingImage
+    ML['image'] = StartingImage
+    MM['image'] = StartingImage
+    MR['image'] = StartingImage
+    BL['image'] = StartingImage
+    BM['image'] = StartingImage
+    BR['image'] = StartingImage
+    WhatsInTL = '-'
+    WhatsInTM = '-'
+    WhatsInTR = '-'
+    WhatsInML = '-'
+    WhatsInMM = '-'
+    WhatsInMR = '-'
+    WhatsInBL = '-'
+    WhatsInBM = '-'
+    WhatsInBR = '-'
+    WhosTurn = 'X'
+    WhosTurnLabel['text'] = "It's " + WhosTurn + "'s turn."
+    EnableAll()
+    IsDisabled = 'False'
+    WinnerFound = 'False'
+
+# This will find who the winner is
+def WinnerO():
+    global WhosTurnLabel
+    global IsDisabled
+    global WinnerFound
+    if WhatsInTL == 'O':
+        if WhatsInTM == 'O':
+            if WhatsInTR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInML == 'O':
+        if WhatsInMM == 'O':
+            if WhatsInMR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInBL == 'O':
+        if WhatsInBM == 'O':
+            if WhatsInBR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTL == 'O':
+        if WhatsInML == 'O':
+            if WhatsInBR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTR == 'O':
+        if WhatsInMR == 'O':
+            if WhatsInBR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTM == 'O':
+        if WhatsInMM == 'O':
+            if WhatsInBM == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTL == 'O':
+        if WhatsInMM == 'O':
+            if WhatsInBR == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTR == 'O':
+        if WhatsInMM == 'O':
+            if WhatsInBL == 'O':
+                WhosTurnLabel['text'] = 'O is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+
+def WinnerX():
+    global WhosTurnLabel
+    global IsDisabled
+    global WinnerFound
+    if WhatsInTL == 'X':
+        if WhatsInTM == 'X':
+            if WhatsInTR == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInML == 'X':
+        if WhatsInMM == 'X':
+            if WhatsInMR == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInBL == 'X':
+        if WhatsInBM == 'X':
+            if WhatsInBR == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTL == 'X':
+        if WhatsInML == 'X':
+            if WhatsInBL == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTR == 'X':
+        if WhatsInMR == 'X':
+            if WhatsInBR == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTM == 'X':
+        if WhatsInMM == 'X':
+            if WhatsInBM == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTL == 'X':
+        if WhatsInMM == 'X':
+            if WhatsInBR == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+    if WhatsInTR == 'X':
+        if WhatsInMM == 'X':
+            if WhatsInBL == 'X':
+                WhosTurnLabel['text'] = 'X is the winner!!!'
+                DisableAll()
+                WinnerFound = 'True'
+
+def Tie():
+    global WinnerFound
+    if WinnerFound == 'False':
+        if IsDisabled == 'True':
+            WhosTurnLabel['text'] = "It's a tie!!!"
 
 # This changes the label at the bottom and displays whos turn it is.
 def ChangeWhosTurnLabel(): 
@@ -161,29 +396,32 @@ background.pack()
 # Label for whos turn it is
 WhosTurnLabel = Label(text= "It's " + WhosTurn + "'s turn.")
 WhosTurnLabel.pack()
-#BoardImage
+# BoardImage
 boardimage = PhotoImage(file='TikTacToe.png')
 background.create_image(250, 250, image=boardimage,)
 
-#Buttons that display X/O depending on whos turn
-button1 = Button(command=lambda: [Disable1(), NextTurn(), ChangeImage1(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage1, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0,)
-button1.place(relx=0.19, rely=0.18)
-button2 = Button(command=lambda: [Disable2(), NextTurn(), ChangeImage2(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage2, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button2.place(relx=0.4, rely=0.18)
-button3 = Button(command=lambda: [Disable3(), NextTurn(), ChangeImage3(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage3, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button3.place(relx=0.61, rely=0.18)
-button4 = Button(command=lambda: [Disable4(), NextTurn(), ChangeImage4(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage4, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button4.place(relx=0.19, rely=0.38)
-button5 = Button(command=lambda: [Disable5(), NextTurn(), ChangeImage5(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage5, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button5.place(relx=0.4, rely=0.38)
-button6 = Button(command=lambda: [Disable6(), NextTurn(), ChangeImage6(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage6, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button6.place(relx=0.61, rely=0.38)
-button7 = Button(command=lambda: [Disable7(), NextTurn(), ChangeImage7(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage7, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button7.place(relx=0.19, rely=0.59)
-button8 = Button(command=lambda: [Disable8(), NextTurn(), ChangeImage8(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage8, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button8.place(relx=0.4, rely=0.59)
-button9 = Button(command=lambda: [Disable9(), NextTurn(), ChangeImage9(), ChangeWhosTurnLabel(), ChangeWhosTurnLabel()], image=XOImage9, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
-button9.place(relx=0.618, rely=0.59)
+# Buttons that display X/O depending on whos turn when clicked
 
-print(WhosTurn)
+TL = Button(command=lambda: [DisableTL(), NextTurn(), ChangeImageTL(), ChangeWhosTurnLabel(), SeeWhatsInTL(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0,)
+TL.place(relx=0.19, rely=0.18)
+TM = Button(command=lambda: [DisableTM(), NextTurn(), ChangeImageTM(), ChangeWhosTurnLabel(), SeeWhatsInTM(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+TM.place(relx=0.4, rely=0.18)
+TR = Button(command=lambda: [DisableTR(), NextTurn(), ChangeImageTR(), ChangeWhosTurnLabel(), SeeWhatsInTR(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+TR.place(relx=0.61, rely=0.18)
+ML = Button(command=lambda: [DisableML(), NextTurn(), ChangeImageML(), ChangeWhosTurnLabel(), SeeWhatsInML(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+ML.place(relx=0.19, rely=0.38)
+MM = Button(command=lambda: [DisableMM(), NextTurn(), ChangeImageMM(), ChangeWhosTurnLabel(), SeeWhatsInMM(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+MM.place(relx=0.4, rely=0.38)
+MR = Button(command=lambda: [DisableMR(), NextTurn(), ChangeImageMR(), ChangeWhosTurnLabel(), SeeWhatsInMR(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+MR.place(relx=0.61, rely=0.38)
+BL = Button(command=lambda: [DisableBL(), NextTurn(), ChangeImageBL(), ChangeWhosTurnLabel(), SeeWhatsInBL(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+BL.place(relx=0.19, rely=0.59)
+BM = Button(command=lambda: [DisableBM(), NextTurn(), ChangeImageBM(), ChangeWhosTurnLabel(), SeeWhatsInBM(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+BM.place(relx=0.4, rely=0.59)
+BR = Button(command=lambda: [DisableBR(), NextTurn(), ChangeImageBR(), ChangeWhosTurnLabel(), SeeWhatsInBR(), WinnerO(), WinnerX(), AllDisabled(), Tie()], image=StartingImage, width='90', height='90', bg='#9EADC8', activebackground='#9eadc8', borderwidth=0)
+BR.place(relx=0.618, rely=0.59)
+
+ResetButton = Button(text='Reset', bg='#9EADC8', activebackground='#9eadc8', command = Reset)
+ResetButton.place(relx=0.45, rely=0.9)
+
 root.mainloop()
