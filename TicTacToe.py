@@ -239,6 +239,7 @@ def Reset():
     global WhatsInBR
     global WhosTurn
     global IsDisabled
+    global WinnerFound
     TL['image'] = StartingImage
     TM['image'] = StartingImage
     TR['image'] = StartingImage
@@ -260,8 +261,8 @@ def Reset():
     WhosTurn = 'X'
     WhosTurnLabel['text'] = "It's " + WhosTurn + "'s turn."
     EnableAll()
-    IsDisabled = 'False'
     WinnerFound = 'False'
+    IsDisabled = 'False'
 
 # This will find who the winner is
 def WinnerO():
@@ -316,7 +317,6 @@ def WinnerO():
                 WhosTurnLabel['text'] = 'O is the winner!!!'
                 DisableAll()
                 WinnerFound = 'True'
-
 def WinnerX():
     global WhosTurnLabel
     global IsDisabled
@@ -369,7 +369,6 @@ def WinnerX():
                 WhosTurnLabel['text'] = 'X is the winner!!!'
                 DisableAll()
                 WinnerFound = 'True'
-
 def Tie():
     global WinnerFound
     if WinnerFound == 'False':
